@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = C:\Users\lover\Desktop\codigoBaseV6.0\cmake-build-debug
 all: CMakeFiles/Ej1.dir/all
 all: CMakeFiles/Ej2.dir/all
 all: CMakeFiles/medicionEficiencia.dir/all
+all: CMakeFiles/lecturaCSV.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -75,6 +76,7 @@ preinstall:
 clean: CMakeFiles/Ej1.dir/clean
 clean: CMakeFiles/Ej2.dir/clean
 clean: CMakeFiles/medicionEficiencia.dir/clean
+clean: CMakeFiles/lecturaCSV.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -136,7 +138,7 @@ CMakeFiles/Ej2.dir/clean:
 CMakeFiles/medicionEficiencia.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\medicionEficiencia.dir\build.make CMakeFiles/medicionEficiencia.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\medicionEficiencia.dir\build.make CMakeFiles/medicionEficiencia.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\lover\Desktop\codigoBaseV6.0\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target medicionEficiencia"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\lover\Desktop\codigoBaseV6.0\cmake-build-debug\CMakeFiles --progress-num=7,8 "Built target medicionEficiencia"
 .PHONY : CMakeFiles/medicionEficiencia.dir/all
 
 # Build rule for subdir invocation for target.
@@ -154,6 +156,32 @@ medicionEficiencia: CMakeFiles/medicionEficiencia.dir/rule
 CMakeFiles/medicionEficiencia.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\medicionEficiencia.dir\build.make CMakeFiles/medicionEficiencia.dir/clean
 .PHONY : CMakeFiles/medicionEficiencia.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/lecturaCSV.dir
+
+# All Build rule for target.
+CMakeFiles/lecturaCSV.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\lover\Desktop\codigoBaseV6.0\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target lecturaCSV"
+.PHONY : CMakeFiles/lecturaCSV.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/lecturaCSV.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\lover\Desktop\codigoBaseV6.0\cmake-build-debug\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/lecturaCSV.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\lover\Desktop\codigoBaseV6.0\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/lecturaCSV.dir/rule
+
+# Convenience name for target.
+lecturaCSV: CMakeFiles/lecturaCSV.dir/rule
+.PHONY : lecturaCSV
+
+# clean rule for target.
+CMakeFiles/lecturaCSV.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/clean
+.PHONY : CMakeFiles/lecturaCSV.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

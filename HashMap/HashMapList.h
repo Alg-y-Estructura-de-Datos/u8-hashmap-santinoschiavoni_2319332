@@ -1,6 +1,7 @@
 #ifndef U05_HASH_HASHMAP_HASHMAPLIST_H_
 #define U05_HASH_HASHMAP_HASHMAPLIST_H_
 
+
 #include "HashEntry.h"
 #include "Lista.h"
 
@@ -27,7 +28,9 @@ public:
 
     void remove(K clave);
 
-    T get(K clave); // Declaración del método get
+    void buscar(K clave);
+
+    T get(K clave); // Declaraci�n del m�todo get
 
     ~HashMapList();
 
@@ -75,44 +78,112 @@ void HashMapList<K, T>::put(K clave, T valor) {
 
     tabla[pos]->insertarUltimo( HashEntry<K, T>(clave, valor));
 }
-
 template <class K, class T>
 void HashMapList<K, T>::remove(K clave) {
-    unsigned int pos = hashFuncP(clave) % tamanio; // Calcular el índice hash
+    unsigned int pos = hashFuncP(clave) % tamanio; // Calcular el �ndice hash
 
-    // Verificar si hay una lista enlazada en esa posición
+    // Verificar si hay una lista enlazada en esa posici�n
     if (tabla[pos] != nullptr) {
+        Nodo<HashEntry<K, T>> *actual = tabla[pos]->getInicio();
+        int index = 0;
 
-        while (!tabla[pos]->esVacia()) {
-            tabla[pos]->remover(0); // Eliminar el primer nodo hasta que la lista esté vacía
+        // Recorrer la lista para encontrar el nodo con la clave
+        while (actual != nullptr) {
+            if (actual->getDato().getClave() == clave) {
+                tabla[pos]->remover(index); // Eliminar solo ese nodo
+                return; // Salir despu�s de eliminar
+            }
+            actual = actual->getSiguiente();
+            index++;
         }
 
-        delete tabla[pos]; // Liberar la memoria de la lista enlazada
-        tabla[pos] = nullptr; // Establecer el puntero a NULL
+        // Si no se encuentra la clave
+        throw 404;
     } else {
-        throw std::runtime_error("La clave no se encontró en el sistema.");
+        throw 409;
     }
 }
+
+template<class K, class T>
+void HashMapList<K,T>::buscar(K clave){
+    unsigned int pos = hashFuncP(clave) % tamanio; // Calcular el �ndice hash
+
+    if(tabla[pos] != nullptr){
+        Nodo<HashEntry<K,T>> *actual = tabla[pos]->getInicio();
+        int index = 0;
+
+        while(actual != nullptr){
+            if(actual ->getDato().getClave()){
+                throw 409;
+                return;
+            }
+            actual = actual ->getSiguiente();
+            index++;
+        }
+        throw 404;
+    } else {
+        throw 700;
+    }
+
+}
+
+//template <class K, class T>
+//void HashMapList<K, T>::remove(K clave) {
+//    unsigned int pos = hashFuncP(clave) % tamanio; // Calcular el �ndice hash
+//
+//    // Verificar si hay una lista enlazada en esa posici�n
+//    if (tabla[pos] != nullptr) {
+//
+//        while (!tabla[pos]->esVacia()) {
+//            tabla[pos]->remover(0); // Eliminar el primer nodo hasta que la lista est� vac�a
+//        }
+//
+//        delete tabla[pos]; // Liberar la memoria de la lista enlazada
+//        tabla[pos] = nullptr; // Establecer el puntero a NULL
+//    } else {
+//        throw std::runtime_error("La clave no se encontr� en el sistema.");
+//    }
+//}
 
 template <class K, class T>
 T HashMapList<K, T>::get(K clave) {
     unsigned int pos = hashFuncP(clave) % tamanio;
 
-    if (tabla[pos] == NULL) {
-        throw std::runtime_error("Clave no encontrada"); // O puedes lanzar la excepción 404
+    if (tabla[pos] == nullptr) {
+        throw 404;
     }
 
     Nodo<HashEntry<K, T>> *nodo = tabla[pos]->getInicio();
 
-    while (nodo != NULL) {
+    while (nodo != nullptr) {
         if (nodo->getDato().getClave() == clave) {
-            return nodo->getDato().getValor(); // Retornar el valor asociado a la clave
+            return nodo->getDato().getValor(); // Retorna solo el valor asociado
         }
         nodo = nodo->getSiguiente();
     }
 
-    throw std::runtime_error("Clave no encontrada"); // O puedes lanzar la excepción 404
+    throw 404;
 }
+
+//template <class K, class T>
+//T HashMapList<K, T>::get(K clave) {
+//    unsigned int pos = hashFuncP(clave) % tamanio;
+//
+//    if (tabla[pos] == NULL) {
+//        throw  404;
+//    }
+//
+//    Nodo<HashEntry<K, T>> *nodo = tabla[pos]->getInicio();
+//
+//    while (nodo != NULL) {
+//        if (nodo->getDato().getClave() == clave) {
+//            return nodo->getDato().getValor(); // Retornar el valor asociado a la clave
+//        }
+//        nodo = nodo->getSiguiente();
+//    }
+//
+//    throw  404;
+//}
 
 template <class K, class T>
 bool HashMapList<K, T>::esVacio() {
@@ -130,7 +201,7 @@ unsigned int HashMapList<K, T>::hashFunc(K clave) {
 }
 
 template <class K, class T>
-void HashMapList<K, T>::getList(K clave) { //Método que devuelve la lista según la clave que recibe
+void HashMapList<K, T>::getList(K clave) { //M�todo que devuelve la lista seg�n la clave que recibe
     unsigned int pos = hashFuncP(clave) % tamanio;
 
     if(tabla[pos] == NULL) {
@@ -149,7 +220,7 @@ template <class K, class T>
 void HashMapList<K, T>::print() {
     for(int i = 0; i < tamanio; i++) {
         if(tabla[i] != NULL) {
-            std::cout << "Índice " << i << ": ";
+            std::cout << "Indice " << i << ": ";
             Nodo<HashEntry<K, T>> *aux = tabla[i]->getInicio();
             while (aux != NULL) {
                 std::cout << "(" << aux->getDato().getClave() << ", " << aux->getDato().getValor() << ") ";
@@ -159,5 +230,6 @@ void HashMapList<K, T>::print() {
         }
     }
 }
+
 
 #endif // U05_HASH_HASHMAP_HASHMAPLIST_H_

@@ -154,6 +154,19 @@ medicionEficiencia/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\medicionEficiencia.dir\build.make CMakeFiles/medicionEficiencia.dir/build
 .PHONY : medicionEficiencia/fast
 
+#=============================================================================
+# Target rules for targets named lecturaCSV
+
+# Build rule for target.
+lecturaCSV: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lecturaCSV
+.PHONY : lecturaCSV
+
+# fast build rule for target.
+lecturaCSV/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/build
+.PHONY : lecturaCSV/fast
+
 Ej1.obj: Ej1.cpp.obj
 .PHONY : Ej1.obj
 
@@ -202,6 +215,30 @@ Ej2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Ej2.dir\build.make CMakeFiles/Ej2.dir/Ej2.cpp.s
 .PHONY : Ej2.cpp.s
 
+lecturaCSV.obj: lecturaCSV.cpp.obj
+.PHONY : lecturaCSV.obj
+
+# target to build an object file
+lecturaCSV.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/lecturaCSV.cpp.obj
+.PHONY : lecturaCSV.cpp.obj
+
+lecturaCSV.i: lecturaCSV.cpp.i
+.PHONY : lecturaCSV.i
+
+# target to preprocess a source file
+lecturaCSV.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/lecturaCSV.cpp.i
+.PHONY : lecturaCSV.cpp.i
+
+lecturaCSV.s: lecturaCSV.cpp.s
+.PHONY : lecturaCSV.s
+
+# target to generate assembly for a file
+lecturaCSV.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lecturaCSV.dir\build.make CMakeFiles/lecturaCSV.dir/lecturaCSV.cpp.s
+.PHONY : lecturaCSV.cpp.s
+
 medicionEficiencia.obj: medicionEficiencia.cpp.obj
 .PHONY : medicionEficiencia.obj
 
@@ -236,6 +273,7 @@ help:
 	@echo ... rebuild_cache
 	@echo ... Ej1
 	@echo ... Ej2
+	@echo ... lecturaCSV
 	@echo ... medicionEficiencia
 	@echo ... Ej1.obj
 	@echo ... Ej1.i
@@ -243,6 +281,9 @@ help:
 	@echo ... Ej2.obj
 	@echo ... Ej2.i
 	@echo ... Ej2.s
+	@echo ... lecturaCSV.obj
+	@echo ... lecturaCSV.i
+	@echo ... lecturaCSV.s
 	@echo ... medicionEficiencia.obj
 	@echo ... medicionEficiencia.i
 	@echo ... medicionEficiencia.s

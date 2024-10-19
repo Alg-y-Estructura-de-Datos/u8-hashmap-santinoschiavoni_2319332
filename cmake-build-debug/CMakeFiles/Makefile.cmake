@@ -54,4 +54,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Ej1.dir/DependInfo.cmake"
   "CMakeFiles/Ej2.dir/DependInfo.cmake"
   "CMakeFiles/medicionEficiencia.dir/DependInfo.cmake"
+  "CMakeFiles/lecturaCSV.dir/DependInfo.cmake"
   )
